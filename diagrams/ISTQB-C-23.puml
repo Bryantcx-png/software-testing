@@ -1,0 +1,12 @@
+@startuml
+!include _style.iuml
+state "REQUESTING" as REQ
+state "WAITING LIST" as WAIT
+state "CONFIRMED" as CONF
+[*] --> REQ : Room request
+REQ --> WAIT : Not available
+REQ --> CONF : Available
+WAIT --> CONF : Available
+WAIT --> [*] : Cancel
+CONF --> [*] : Pay
+@enduml

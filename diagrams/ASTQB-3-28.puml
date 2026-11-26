@@ -1,0 +1,11 @@
+@startuml
+!include _style.iuml
+left to right direction
+state "Login" as L
+state "Home page" as H
+state "Wait 10 mins" as W
+L --> L : Fail < 3
+L --> H : Success
+L --> W : 3 failed tries
+W --> L : Wait over
+@enduml

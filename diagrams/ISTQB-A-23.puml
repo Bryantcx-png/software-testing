@@ -1,0 +1,15 @@
+@startuml
+!include _style.iuml
+state "INIT" as INIT
+state "DEBUG MODE" as DEBUG
+state "IN OPERATION" as OPER
+state "ON HOLD" as HOLD
+state "OFF" as OFF
+INIT --> DEBUG : test
+INIT --> OPER : run
+OPER --> DEBUG : error
+OPER --> HOLD : pause
+HOLD --> OPER : resume
+DEBUG --> OFF : done
+HOLD --> OFF : done
+@enduml

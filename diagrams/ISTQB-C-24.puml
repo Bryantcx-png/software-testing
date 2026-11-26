@@ -1,0 +1,16 @@
+@startdot
+digraph CFG {
+  graph [bgcolor=white, nodesep=0.7, ranksep=0.45];
+  node [shape=circle, width=0.42, fixedsize=true, fontname=Arial, fontsize=13, color=black];
+  edge [color=black, arrowsize=0.8];
+  1 -> 2;
+  2 -> 3;
+  3 -> 2;
+  2 -> 4;
+  4 -> 5;
+  4 -> 6;
+  5 -> 7;
+  6 -> 7;
+  {rank=same; 2; 3;}
+}
+@enddot

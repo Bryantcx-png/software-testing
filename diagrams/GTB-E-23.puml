@@ -1,0 +1,20 @@
+@startdot
+digraph PUMP {
+  graph [bgcolor=white, rankdir=TB, nodesep=0.35, ranksep=0.42];
+  node [shape=box, style="rounded,filled", fillcolor="#f1f1f1", color=black, fontname=Arial, fontsize=13, height=0.38];
+  edge [color=black, fontname=Arial, fontsize=13, arrowsize=0.7];
+  start [shape=circle, style=filled, fillcolor=black, label="", width=0.18, fixedsize=true];
+  WC [label="Waiting for customer"];
+  WF [label="Waiting for fuel type"];
+  WP [label="Waiting for pumping"];
+  P  [label="Pumping"];
+  start -> WC;
+  WC:e -> WC:e [label=" 1"];
+  WC -> WF [label=" 2"];
+  WF -> WC [label=" 3"];
+  WF -> WP [label=" 4"];
+  WP -> WC [label=" 5"];
+  WP -> P  [label=" 6"];
+  P -> WC  [label=" 7"];
+}
+@enddot

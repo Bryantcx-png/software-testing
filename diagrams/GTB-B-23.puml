@@ -1,0 +1,20 @@
+@startuml
+!include _style.iuml
+state "Standby" as SB
+state "Off" as OFF
+state "Maintenance charging" as MC
+state "Charging" as CH
+state "Low" as LOW
+state "High" as HIGH
+[*] --> SB
+SB --> OFF
+OFF --> SB
+SB --> MC
+MC --> SB
+MC --> CH
+CH --> MC
+CH --> LOW
+LOW --> CH
+CH --> HIGH
+HIGH --> CH
+@enduml

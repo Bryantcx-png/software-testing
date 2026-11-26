@@ -1,0 +1,11 @@
+@startuml
+!include _style.iuml
+state "TV Off (S1)" as S1
+state "TV Stand By (S2)" as S2
+state "TV Play (S3)" as S3
+S1 --> S2 : Power ON
+S2 --> S1 : Power Off
+S2 --> S3 : RC On
+S3 --> S2 : RC Off
+S3 --> S1 : Power Off
+@enduml

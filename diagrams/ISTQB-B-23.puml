@@ -1,0 +1,15 @@
+@startdot
+digraph ST {
+  graph [bgcolor=white, rankdir=LR, nodesep=0.45, ranksep=0.7];
+  node [shape=box, style="rounded,filled", fillcolor="#f1f1f1", color=black, fontname=Arial, fontsize=13, height=0.38];
+  edge [color=black, fontname=Arial, fontsize=13, arrowsize=0.7];
+  start [shape=circle, style=filled, fillcolor=black, label="", width=0.18, fixedsize=true];
+  NF [label="NOT FULL"];
+  F [label="FULL"];
+  start -> NF [label="E1"];
+  NF:n -> NF:n [label="E2"];
+  NF:s -> NF:s [label="E3"];
+  NF -> F [label="E4"];
+  F -> NF [label="E5"];
+}
+@enddot
