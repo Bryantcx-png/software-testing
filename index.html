@@ -345,6 +345,7 @@ function savedMarathon() { const m = load(KM, null); return m && m.ids && m.ids.
 function weakAvail(chs) { return chs.reduce((n, c) => n + POOL[c].filter(id => weakWeight(id) > 0).length, 0); }
 
 function renderCover() {
+  const stay = VIEW === "cover", y = window.scrollY;  // re-render after changing an option: keep the scroll position
   VIEW = "cover";
   const s = PREFS, m = savedMarathon(), sp = savedSubj();
   const subj = s.mode === "subjective";
@@ -420,7 +421,7 @@ function renderCover() {
     ${sp && subj && s.subjKind === "exam" ? `<p class="warn" style="text-align:center">Starting a new paper will replace the saved one.</p>` : ""}
     <div class="start-wrap"><button class="box" id="start" ${canStart ? "" : "disabled"}>START</button></div>
   </div><div class="pageno">Cover page</div></div>`;
-  window.scrollTo(0, 0);
+  window.scrollTo(0, stay ? y : 0);
 
   document.querySelectorAll('input[name="mode"]').forEach(r => r.onchange = () => { PREFS.mode = r.value; savePrefs(); renderCover(); });
   $("#start").onclick = startFromCover;
