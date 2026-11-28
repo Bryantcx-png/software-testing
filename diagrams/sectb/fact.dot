@@ -1,0 +1,4 @@
+digraph G { graph [rankdir=TB, nodesep=0.5, ranksep=0.4, fontname=Arial]; node [shape=box, style=rounded, fontname=Arial, fontsize=12, penwidth=1.2]; edge [fontname=Arial, fontsize=11, arrowsize=0.7];
+A [label="1-2  read n; n < 0 ?"]; B [label="3-4  print Invalid; n = -1"]; C [label="6  f = 1"]; Dn [label="7  i <= n ?"]; E [label="8  f = f * i"]; F [label="9  print n!"]; G [label="10  return n"];
+A -> B [label=" e1 true"]; A -> C [label=" e2 false"]; B -> G [label=" e3"]; C -> Dn [label=" e4"]; Dn -> E [label=" e5 true"]; E -> Dn [label=" e6"]; Dn -> F [label=" e7 false"]; F -> G [label=" e8"];
+}

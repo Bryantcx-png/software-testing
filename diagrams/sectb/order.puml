@@ -1,0 +1,16 @@
+@startuml
+!include /home/claude/diagrams/_style.iuml
+state "New" as N
+state "Paid" as P
+state "Shipped" as S
+state "Delivered" as D
+state "Cancelled" as C
+[*] --> N
+N -right-> P : pay
+P -right-> S : ship
+S --> D : deliver
+N --> C : cancel
+P --> C : cancel
+D --> [*]
+C --> [*]
+@enduml
