@@ -1,0 +1,17 @@
+@startuml
+!include /home/claude/diagrams/_style.iuml
+state "S1: 1st try" as S1
+state "S2: 2nd try" as S2
+state "S3: 3rd try" as S3
+state "S4: Access granted" as S4
+state "S5: Account blocked" as S5
+[*] --> S1
+S1 -right-> S2 : invalid
+S2 -right-> S3 : invalid
+S3 --> S5 : invalid
+S1 --> S4 : valid
+S2 --> S4 : valid
+S3 --> S4 : valid
+S4 --> [*]
+S5 --> [*]
+@enduml

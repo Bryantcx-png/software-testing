@@ -1,0 +1,20 @@
+@startuml
+!include /home/claude/diagrams/_style.iuml
+state "Pending Payment" as PP
+state "Paid" as PD
+state "Preparing" as PR
+state "Out for Delivery" as OD
+state "Delivered" as DL
+state "Cancelled" as CN
+[*] --> PP
+PP --> PD : pay OK
+PP --> CN : pay fail
+PP --> CN : cancel
+PD --> PR : accept
+PD --> CN : reject / refund
+PD --> CN : cancel / refund
+PR --> OD : pick up
+OD --> DL : confirm
+DL --> [*]
+CN --> [*]
+@enduml

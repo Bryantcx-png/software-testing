@@ -1,0 +1,4 @@
+digraph G { graph [rankdir=TB, nodesep=0.45, ranksep=0.38, fontname=Arial]; node [shape=ellipse, fontname=Arial, fontsize=12, penwidth=1.2]; edge [fontname=Arial, fontsize=11, arrowsize=0.7];
+N1 [label="N1: lines 2-3"]; N2 [label="N2: line 4\nwhile"]; N3 [label="N3: line 5\nif day <= 7"]; N4 [label="N4: line 6"]; N5 [label="N5: line 8"]; N6 [label="N6: line 9"]; N7 [label="N7: line 10\nif fine > 30"]; N8 [label="N8: line 11"]; N9 [label="N9: line 12\nreturn"];
+N1 -> N2; N2 -> N3 [label=" T"]; N2 -> N7 [label=" F"]; N3 -> N4 [label=" T"]; N3 -> N5 [label=" F"]; N4 -> N6; N5 -> N6; N6 -> N2; N7 -> N8 [label=" T"]; N7 -> N9 [label=" F"]; N8 -> N9;
+}

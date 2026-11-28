@@ -1,0 +1,18 @@
+@startuml
+!include /home/claude/diagrams/_style.iuml
+state "S1: Available" as S1
+state "S2: Reserved" as S2
+state "S3: On loan" as S3
+state "S4: Overdue" as S4
+state "S5: Lost" as S5
+[*] --> S1
+S1 --> S2 : Reserve
+S2 --> S1 : Cancel
+S1 --> S3 : Borrow
+S2 --> S3 : Borrow
+S3 --> S1 : Return
+S3 --> S4 : Due date passed
+S4 --> S1 : Return / fine
+S4 --> S5 : Report lost
+S5 --> [*]
+@enduml

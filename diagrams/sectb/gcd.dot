@@ -1,0 +1,4 @@
+digraph G { graph [rankdir=TB, nodesep=0.5, ranksep=0.42, fontname=Arial]; node [shape=ellipse, fontname=Arial, fontsize=12, style=solid, penwidth=1.2]; edge [fontname=Arial, fontsize=11, arrowsize=0.7];
+N1 [label="N1: line 1\ndef gcd"]; N2 [label="N2: line 2\nwhile a != b"]; N3 [label="N3: line 3\nif a > b"]; N4 [label="N4: line 4\na = a - b"]; N5 [label="N5: line 6\nb = b - a"]; N6 [label="N6: line 7\nreturn a"];
+N1 -> N2; N2 -> N3 [label=" T"]; N2 -> N6 [label=" F"]; N3 -> N4 [label=" T"]; N3 -> N5 [label=" F"]; N4 -> N2; N5 -> N2;
+}
